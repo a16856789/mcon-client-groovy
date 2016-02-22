@@ -26,7 +26,7 @@ class Mcon {
             .form('methodName', conf.methodName)
             .form('params', new JsonBuilder(conf.params ?: []).toString())
     		.send();
-        def body = new JsonSlurper().parseText(res.body());
+        def body = new JsonSlurper().parseText(res.bodyText());
         if (body.success) {
             return body.response;
         } else {

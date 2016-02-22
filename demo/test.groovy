@@ -16,4 +16,4 @@ msg = Mcon.invoke([
 println msg;
 
 def echoTest = Mcon.proxy('mcon.EchoTest');
-println echoTest.echo('adsf');
+println echoTest.echo('你好');
