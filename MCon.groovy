@@ -3,10 +3,12 @@ import jodd.http.*;
 
 class MconProxy extends groovy.util.Proxy {
     def serviceId = '';
+    def headers = [:];
     def invokeMethod(String methodName, Object args) {
         def res = Mcon.invoke([
             serviceId: serviceId,
             methodName: methodName,
+            headers: this.headers,
             params: args
         ]);
         return res;
@@ -34,7 +36,7 @@ class Mcon {
         }
     }
 
-    static def proxy(serviceId) {
-        return new MconProxy(serviceId: serviceId);
+    static def proxy(serviceId, headers = [:]) {
+        return new MconProxy(serviceId: serviceId, headers: headers);
     }
 }

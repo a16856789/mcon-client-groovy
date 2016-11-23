@@ -3,7 +3,7 @@
 ## Usage
 
 ```groovy
-def echoTest = Mcon.proxy('mcon.EchoTest');
+def echoTest = Mcon.proxy('mcon.EchoTest', [timeout: 5000]);
 println echoTest.echo('adsf');
 ```
 
